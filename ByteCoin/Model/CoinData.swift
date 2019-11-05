@@ -13,7 +13,15 @@ struct CoinData: Decodable {
     var last: Double
     
     var lastString: String {
-        return String(format: "%.2f", last)
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.groupingSeparator = ","
+        formatter.groupingSize = 3
+        formatter.generatesDecimalNumbers = true
+        formatter.maximumFractionDigits = 2
+        
+        return formatter.string(from: NSNumber(value: last)) ?? "Error"
+
     }
 
     
