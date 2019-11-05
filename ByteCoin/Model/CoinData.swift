@@ -19,6 +19,7 @@ struct CoinData: Decodable {
         formatter.groupingSize = 3
         formatter.generatesDecimalNumbers = true
         formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
         
         return formatter.string(from: NSNumber(value: last)) ?? "Error"
 
